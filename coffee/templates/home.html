@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Feel Good Coffee</h1>
+
+<div class="row" style="gap: 1rem">
+	{% for coffee in coffee %}
+	<div class="col">
+		<div class="card" style="width: 20rem; padding: 1rem">
+			<img
+				src="{{ coffee.image }}"
+				class="card-img-top"
+				alt="coffee"
+				style="width: 286px; height: 190px" />
+			<div class="card-body">
+				<h5 class="card-title">{{ coffee.name }}</h5>
+				<p class="card-text">${{ coffee.price }}</p>
+				<a href="{% url 'add_to_cart' coffee.id %}" class="btn btn-primary">
+					Request
+				</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
